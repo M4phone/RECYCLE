@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폰리사이클 - ICT 자원순환 전문기업</title>
+
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .text-primary {
+            color: #004d40;
+        }
+
+        /* Deep Teal */
+        .bg-primary {
+            background-color: #004d40;
+        }
+
+        .text-accent {
+            color: #059669;
+        }
+
+        /* Green */
+        .bg-accent {
+            background-color: #059669;
+        }
+
+        /* 반응형 섹션 패딩 */
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+    </style>
+
+    <!-- [수정됨] 변수 선언 위치 변경: 오류 해결을 위해 head 태그 안으로 이동 -->
+    <script>
+        var submitted = false;
+    </script>
+</head>
+
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+    <!-- Header / Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary flex items-center gap-2">
+                <i class="fa-solid fa-recycle text-accent"></i>
+                PHONE RECYCLE
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium items-center">
+                <a href="#about" class="hover:text-accent transition">회사소개</a>
+                <a href="#services" class="hover:text-accent transition">주요서비스</a>
+                <a href="#process" class="hover:text-accent transition">업무프로세스</a>
+                <a href="#faq" class="hover:text-accent transition">FAQ</a>
+                <a href="#contact"
+                    class="px-5 py-2.5 bg-primary text-white rounded-lg hover:bg-opacity-90 transition shadow-md">견적문의</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-primary p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t p-4 flex flex-col space-y-4 shadow-lg absolute w-full left-0">
+            <a href="#about" class="block hover:text-accent py-2 font-medium border-b border-gray-50">회사소개</a>
+            <a href="#services" class="block hover:text-accent py-2 font-medium border-b border-gray-50">주요서비스</a>
+            <a href="#process" class="block hover:text-accent py-2 font-medium border-b border-gray-50">업무프로세스</a>
+            <a href="#faq" class="block hover:text-accent py-2 font-medium border-b border-gray-50">FAQ</a>
+            <a href="#contact" class="block text-accent font-bold py-2">견적문의</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Full Width) -->
+    <section class="relative bg-gray-900 text-white min-h-[600px] flex items-center overflow-hidden pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Technology Background" class="w-full h-full object-cover">
+        </div>
+
+        <!-- [수정됨] 모바일 패딩을 최소화(px-4)하여 글자가 들어갈 공간 확보 -->
+        <div class="container mx-auto px-4 md:px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left animate-fade-in-up">
+                <span
+                    class="inline-block px-4 py-1.5 bg-accent/20 border border-accent rounded-full text-accent text-sm font-bold mb-6 tracking-wider">SINCE
+                    2013</span>
+
+                <!-- [수정됨] 
+                     1. leading-snug -> leading-relaxed (행간을 넓힘: 줄 사이 간격 확보)
+                     2. tracking-wide 유지
+                -->
+                <h1 class="text-[22px] sm:text-4xl md:text-6xl font-black mb-6 leading-relaxed tracking-wide">
+                    <!-- 
+                        [수정됨] 
+                        mb-2 sm:mb-0 추가: 모바일(block 상태)일 때 강제로 아래 여백을 줘서 줄 간격을 더 벌림 
+                    -->
+                    <span class="whitespace-nowrap block sm:inline mb-2 sm:mb-0">공공기관이 신뢰하는</span>
+
+                    <!-- 줄바꿈 -->
+                    <br class="hidden sm:block">
+
+                    <!-- 두 번째 줄: 전체 초록색(text-green-400) 적용 -->
+                    <span class="whitespace-nowrap block sm:inline text-green-400">ICT 자원순환 전문기업</span>
+                </h1>
+
+                <p class="text-sm md:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0 break-keep">
+                    전국 검찰청·경찰청·공공기관 및 기업체 협력.<br>
+                    불용폰 매입부터 데이터 보안 파쇄까지<br>
+                    원스톱 솔루션을 제공합니다.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact"
+                        class="px-8 py-4 bg-accent text-white font-bold rounded-xl hover:bg-green-600 transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-paper-plane"></i> 온라인 견적 요청
+                    </a>
+                    <a href="#services"
+                        class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition flex items-center justify-center gap-2">
+                        서비스 자세히 보기
+                    </a>
+                </div>
+            </div>
+            <!-- Hero Image/Graphic (Optional) -->
+            <div class="hidden md:block relative">
+                <!-- Abstract tech visualization or just empty to let bg show -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Banner (Full Width) -->
+    <div class="bg-primary text-white border-b border-gray-700">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-green-200 text-sm font-bold uppercase tracking-widest">TRUSTED PARTNERS</p>
+                <div
+                    class="flex flex-wrap justify-center md:justify-end gap-6 md:gap-12 opacity-80 font-bold text-lg items-center">
+                    <span>검찰청</span>
+                    <span class="hidden md:block w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                    <span>경찰청</span>
+                    <span class="hidden md:block w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                    <span>SAMSUNG</span>
+                    <span class="hidden md:block w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                    <span>SK네트웍스</span>
+                    <span class="hidden md:block w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                    <span>하이마트</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="md:w-1/2 relative group">
+                    <div
+                        class="absolute -inset-4 bg-accent/20 rounded-2xl transform rotate-3 transition group-hover:rotate-1">
+                    </div>
+                    <!-- Image: Professional business/recycling context -->
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        alt="Business Meeting" class="relative rounded-xl shadow-2xl w-full object-cover h-[400px]">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-accent font-bold mb-2 uppercase tracking-wide">About Us</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">보안과 환경을 생각하는<br>최고의 파트너</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        폰리사이클은 2013년 설립 이래 공공기관 및 기업체의 불용 자산을 체계적으로 관리해왔습니다.
+                        특히 <strong>개인정보 보안</strong>을 최우선으로 하여, 현장 파쇄 및 데이터 완전 삭제 기술을 통해 고객사의 신뢰를 얻고 있습니다.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <i class="fa-solid fa-shield-halved text-accent text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">철저한 보안</h4>
+                                <p class="text-sm text-gray-500">데이터 완전 삭제/파쇄</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <i class="fa-solid fa-leaf text-accent text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">ESG 경영</h4>
+                                <p class="text-sm text-gray-500">자원순환 실적 보고</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">주요 서비스</h2>
+                <p class="text-gray-600 text-lg">기업과 공공기관의 니즈에 맞춘 전문적인 ICT 자원순환 서비스를 제공합니다.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Card 1 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border border-gray-100 group">
+                    <div
+                        class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-accent text-3xl group-hover:bg-accent group-hover:text-white transition">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">액정 분리 및 매입</h3>
+                    <p class="text-gray-600">삼성·LG·애플 등 전 기종 액정 분리 기술 보유 및 고가 매입 진행</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border border-gray-100 group">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 text-3xl group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">보안폰 납품/매입</h3>
+                    <p class="text-gray-600">관공서 및 기업체 불용폰 대량 매입 및 정식 매각 절차 이행</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border border-gray-100 group">
+                    <div
+                        class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-6 text-red-600 text-3xl group-hover:bg-red-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">현장 보안 파쇄</h3>
+                    <p class="text-gray-600">현장 메인보드 분리 작업 및 즉시 파쇄로 개인정보 유출 원천 차단</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 border border-gray-100 group">
+                    <div
+                        class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 text-yellow-600 text-3xl group-hover:bg-yellow-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">자원 재활용 보고</h3>
+                    <p class="text-gray-600">환경부 지침 준수 및 자원순환 실적 보고서 및 증명서 발급</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Vertical Timeline for PC/Mobile) -->
+    <section id="process" class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Left: Title & Description -->
+                <div class="lg:w-1/3">
+                    <div class="sticky top-28">
+                        <h3 class="text-accent font-bold mb-2 uppercase tracking-wide">Process</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">매입 및 처리 절차</h2>
+                        <p class="text-gray-600 text-lg mb-8">
+                            복잡한 절차 없이 체계적이고 신속하게 처리해 드립니다.
+                            문의부터 증명서 발급까지 원스톱으로 진행됩니다.
+                        </p>
+                        <a href="#contact"
+                            class="hidden lg:inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition">
+                            지금 견적 문의하기 <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Vertical Timeline -->
+                <div class="lg:w-2/3">
+                    <div class="relative pl-8 border-l-2 border-gray-100 space-y-12">
+                        <!-- Step 1 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[41px] top-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white">1</span>
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">기관 내 수량확인 및 상담</h4>
+                                <p class="text-gray-600">기관 담당자와 매각 대상 품목 목록 및 대략적인 수량을 파악하고 방문 일정을 조율합니다.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[41px] top-0 w-10 h-10 bg-white text-primary border-2 border-primary rounded-full flex items-center justify-center font-bold shadow-md">2</span>
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">전문인력 방문 및 물품 검수</h4>
+                                <p class="text-gray-600">전문가가 현장에 직접 방문하여 실물을 검수하고, 정확한 등급 분류 및 최종 견적을 산출합니다.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[41px] top-0 w-10 h-10 bg-white text-primary border-2 border-primary rounded-full flex items-center justify-center font-bold shadow-md">3</span>
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">매입 및 수거 진행</h4>
+                                <p class="text-gray-600">합의된 단가로 매입 계약을 체결하고, 보안 차량을 이용해 안전하게 수거 작업을 진행합니다.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[41px] top-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center shadow-lg border-4 border-white"><i
+                                    class="fa-solid fa-check"></i></span>
+                            <div
+                                class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition bg-green-50/50">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">보안 폐기 증명서 발급</h4>
+                                <p class="text-gray-600">데이터 완전 삭제 및 파쇄 완료 후, 보안 폐기 증명서 및 자원순환 실적 서류를 발급해 드립니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Form Section -->
+    <section id="contact" class="section-padding bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background decorative -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-primary opacity-10 transform skew-x-12 translate-x-20"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+                <!-- Contact Info -->
+                <div class="lg:w-1/3 space-y-8">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4">온라인 견적 문의</h2>
+                        <p class="text-gray-400 mb-8">
+                            공공기관 및 기업 고객 전용 문의처입니다.<br>
+                            양식을 작성해주시면 담당자가 빠르게 연락드립니다.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-accent text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">대표전화</p>
+                                <p class="text-xl font-bold">010-2620-7444</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-accent text-xl">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">이메일</p>
+                                <p class="text-xl font-bold">sijoon22@naver.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-accent text-xl">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">운영시간</p>
+                                <p class="text-lg">월~토 09:00 ~ 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form (Google Forms Integration Style) -->
+                <div class="lg:w-2/3">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-10 text-gray-800">
+                        <!-- 
+                             [중요] Google 설문지(Forms) 연동 방법
+                             1. Google 설문지를 만듭니다 (질문: 기관명, 담당자, 연락처, 이메일, 내용).
+                             2. 설문지의 <form action="..."> URL을 가져옵니다.
+                             3. 각 input의 name="..." 값을 Google 설문지의 entry.123456... 값으로 변경합니다.
+                             4. 아래 form 태그에 target="hidden_iframe"을 추가하여 페이지 이동을 막습니다.
+                        -->
+
+                        <!-- 실제 작동을 위한 타겟 iframe (화면에는 안 보임) -->
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                            onload="if(submitted) {alert('견적 요청이 성공적으로 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.'); window.location.reload();}"></iframe>
+
+                        <!-- action에는 실제 Google Form의 '응답 제출' URL을 넣어야 합니다. 현재는 예시 URL입니다. -->
+                        <!-- 예시: action="https://docs.google.com/forms/u/0/d/e/FORM_ID_HERE/formResponse" -->
+                        <form id="quoteForm" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"
+                            method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">기관명 / 회사명</label>
+                                    <!-- name 속성을 Google Form의 entry ID로 바꿔야 함 (예: entry.12345678) -->
+                                    <input type="text" name="entry.COMPANY_ID" placeholder="예) 서울중앙지방검찰청"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
+                                        required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">담당자 성함</label>
+                                    <input type="text" name="entry.NAME_ID" placeholder="홍길동"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">연락처</label>
+                                    <input type="tel" name="entry.PHONE_ID" placeholder="010-0000-0000"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
+                                        required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">이메일</label>
+                                    <input type="email" name="entry.EMAIL_ID" placeholder="email@example.com"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">문의 내용</label>
+                                <textarea name="entry.MESSAGE_ID" rows="4"
+                                    placeholder="불용폰 수거 견적 / 액정 분리 문의 / 파쇄 증명서 요청 등 구체적인 내용을 적어주세요."
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition resize-none"
+                                    required></textarea>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="privacy" required
+                                    class="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary">
+                                <label for="privacy" class="text-sm text-gray-500">개인정보 수집 및 이용에 동의합니다.</label>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-opacity-90 transition flex justify-center items-center gap-2 text-lg">
+                                <span>견적서 보내기</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+
+                            <p class="text-xs text-center text-gray-400 mt-4 bg-gray-50 py-2 rounded">
+                                ※ 이 폼은 Google 설문지와 연동되어 데이터가 안전하게 전송됩니다. (현재는 데모 모드입니다)
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-500 py-12 border-t border-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-recycle text-accent"></i> PHONE RECYCLE
+                    </h2>
+                </div>
+                <div class="flex space-x-6 text-2xl">
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-sm text-center md:text-left">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="mb-1">상호명: 폰리사이클 | 대표: 홍길동</p>
+                        <p class="mb-1">사업자등록번호: 000-00-00000</p>
+                        <p>주소: 서울특별시 서초구 반포대로 (예시 주소)</p>
+                    </div>
+                    <div class="md:text-right">
+                        <p class="mb-1">고객센터: 010-2620-7444</p>
+                        <p class="mb-1">이메일: sijoon22@naver.com</p>
+                        <p>&copy; 2024 PHONE RECYCLE. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Logic -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // 2. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // 3. Form Submission Handling (Google Form Simulation)
+        // [수정됨] submitted 변수는 이제 head 태그에서 먼저 선언됩니다.
+
+        // 데모용: 실제 Google Form ID가 없으므로 전송 버튼 누르면 알림만 뜨게 처리
+        document.getElementById('quoteForm').addEventListener('submit', function (e) {
+            // 실제 Google Form URL이 설정되지 않았을 때를 위한 방어 코드
+            if (this.action.includes("YOUR_FORM_ID")) {
+                e.preventDefault();
+                alert("[데모 모드]\nGoogle 설문지 URL을 설정하면 실제 Gmail 계정과 연동됩니다.\n\n현재는 디자인 확인용입니다.");
+            }
+        });
+    </script>
+</body>
+
+</html>
