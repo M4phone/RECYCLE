@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Google Sheets Integration
     // TODO: 사용자가 배포 후 생성된 URL을 아래에 입력해야 합니다.
-    const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE"; 
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_JtLQIWF1sGm8zZcV0OHrlZLktvqs9O5-GMi3kerNP3WrzIn_Jfsi4YRqEw7xd4sc/exec"; 
 
     const quoteForm = document.getElementById('quoteForm');
     if (quoteForm) {
