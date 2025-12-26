@@ -188,10 +188,14 @@ header {
    4. Intro (Hero)
    ========================================= */
 #intro {
-    padding: 8rem 0 6rem;
-    background: linear-gradient(180deg, #ffffff 0%, var(--bg-body) 100%);
+    padding: 10rem 0 8rem;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.85)), url('img/hero_clean.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     text-align: center;
     overflow: hidden;
+    color: white;
 }
 
 .intro-badge {
@@ -230,6 +234,7 @@ header {
 }
 
 .intro-content p {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     font-size: 1.15rem;
     color: var(--text-main);
     margin-bottom: 1rem;
@@ -395,7 +400,11 @@ header {
    7. Achievements (Centered Timeline)
    ========================================= */
 #achievements {
-    background: white;
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('img/partnership_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
 }
 
 .achievements-banner {
@@ -853,4 +862,18 @@ footer {
         height: 140px;
         padding: 1rem;
     }
+}
+#achievements .section-title { color: white; }
+#achievements .section-desc { color: rgba(255, 255, 255, 0.7); }
+#achievements .history-content { color: rgba(255, 255, 255, 0.9); }
+#achievements .history-year { color: #60a5fa; }
+
+#intro .section-title {
+    color: white !important;
+}
+#intro .intro-content p {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+#intro .intro-badge {
+    color: #60a5fa !important;
 }
