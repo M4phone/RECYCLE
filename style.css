@@ -877,3 +877,78 @@ footer {
 #intro .intro-badge {
     color: #60a5fa !important;
 }
+
+/* =========================================
+   13. Footer Company Grid (Added)
+   ========================================= */
+.company {
+    max-width: 980px;
+    margin: 0 auto 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    text-align: left;
+}
+
+.detail {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #edf0f2;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 6px 20px rgba(16, 24, 40, .06);
+    color: var(--text-main);
+}
+
+.detail .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.detail .icon i {
+    font-size: 1.1rem;
+}
+
+.detail.phone .icon {
+    background: #25d366;
+}
+
+.detail.email .icon {
+    background: #fff;
+    color: var(--accent-color);
+    border: 1px solid #edf0f2;
+}
+
+.detail.kakao .icon {
+    background: #ffe812;
+    color: #3c1e1e;
+}
+
+.detail.telegram .icon {
+    background: #0088cc;
+}
+
+.detail .meta strong {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.meta a {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .company {
+        grid-template-columns: 1fr;
+    }
+}
